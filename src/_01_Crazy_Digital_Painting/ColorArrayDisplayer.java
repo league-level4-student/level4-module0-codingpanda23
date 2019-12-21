@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 
 public class ColorArrayDisplayer {
 	public static void main(String[] args) {
-		
+		ColorArrayDisplayer.displayColorsAsImage(CrazyDigitalPainting.colors);
 	}
 	public static void displayColorsAsImage(Color[][] colors) {
 		JFrame window = new JFrame();
