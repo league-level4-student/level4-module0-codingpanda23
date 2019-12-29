@@ -15,8 +15,10 @@ public class GridPanel extends JPanel{
 	private int pixelHeight;
 	private int rows;
 	private int cols;
-	int m;
-	int s;
+	private int m;
+	private int s;
+	private int x;
+	private int y;
 	
 	//1. Create a 2D array of pixels. Do not initialize it yet.
 	Pixel[][] pixels;
@@ -58,6 +60,9 @@ public class GridPanel extends JPanel{
 			System.out.println(mouseX+", "+mouseY);
 			m = mouseX/pixelWidth;
 			s = mouseY/pixelHeight;
+			x = mouseX;
+			y = mouseY;
+			
 	}
 	
 	@Override
@@ -67,13 +72,14 @@ public class GridPanel extends JPanel{
 		//   Then, use drawRect to add a grid pattern to your display.
 		for (int i = 0; i < pixels.length; i++) {
 			for (int j = 0; j < pixels.length; j++) {
-				if (m==i && s==j) {
+				if (m == i && s == j) {
 					g.setColor(color);
-					g.fillRect(windowWidth/m, windowHeight/s, pixelWidth, pixelHeight);
+					g.fillRect(x, y, pixelWidth, pixelHeight);
 				}
 				g.setColor(Color.BLACK);
 				g.drawRect(pixelWidth, pixelHeight, pixelWidth, pixelHeight);
 				g.drawRect(pixelWidth, 0, pixelWidth, pixelHeight);
+				g.drawRect(pixelHeight, pixelWidth*2, pixelWidth, pixelHeight);
 			}
 		}
 	}
