@@ -24,7 +24,6 @@ public class GridPanel extends JPanel{
 	Pixel[][] pixels;
 	
 	private Color color;
-	
 	public GridPanel(int w, int h, int r, int c) {
 		this.windowWidth = w;
 		this.windowHeight = h;
@@ -72,16 +71,21 @@ public class GridPanel extends JPanel{
 		//   Then, use drawRect to add a grid pattern to your display.
 		for (int i = 0; i < pixels.length; i++) {
 			for (int j = 0; j < pixels.length; j++) {
-				if (m == i && s == j) {
+				for (int k = 0; k < windowWidth/pixelWidth; k++) {
+					g.setColor(Color.BLACK);
+					g.drawRect(windowWidth/pixelWidth, windowHeight/pixelHeight, pixelWidth, pixelHeight);
 					g.setColor(color);
-					g.fillRect(x, y, pixelWidth, pixelHeight);
+					g.fillRect(windowWidth/(pixelWidth), windowHeight/(pixelHeight), pixelWidth, pixelHeight);
 				}
+				
 				g.setColor(Color.BLACK);
-				g.drawRect(pixelWidth, pixelHeight, pixelWidth, pixelHeight);
-				g.drawRect(pixelWidth, 0, pixelWidth, pixelHeight);
-				g.drawRect(pixelHeight, pixelWidth*2, pixelWidth, pixelHeight);
+				g.drawRect(0, 0, pixelWidth, pixelHeight);
 			}
 		}
 	}
 }
+
+
+
+
 
