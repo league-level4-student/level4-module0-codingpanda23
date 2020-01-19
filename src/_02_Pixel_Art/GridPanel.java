@@ -15,10 +15,6 @@ public class GridPanel extends JPanel{
 	private int pixelHeight;
 	private int rows;
 	private int cols;
-	private int m;
-	private int s;
-	private int x;
-	private int y;
 	
 	//1. Create a 2D array of pixels. Do not initialize it yet.
 	Pixel[][] pixels;
@@ -42,8 +38,8 @@ public class GridPanel extends JPanel{
 		
 		//3. Iterate through the array and initialize each element to a new pixel.
 			for (int i = 0; i < pixels.length; i++) {
-				for (int j = 0; j < pixels.length; j++) {
-					pixels[i][j] = new Pixel(i, j);
+				for (int j = 0; j < pixels[0].length; j++) {
+					pixels[i][j] = new Pixel(i*pixelWidth, j*pixelHeight);
 				}
 			}
 		
@@ -57,11 +53,11 @@ public class GridPanel extends JPanel{
 		//5. Use the mouseX and mouseY variables to change the color
 		//   of the pixel that was clicked. *HINT* Use the pixel's dimensions.
 			System.out.println(mouseX+", "+mouseY);
-			m = mouseX/pixelWidth;
-			s = mouseY/pixelHeight;
-			x = mouseX;
-			y = mouseY;
-			
+			for (int i = 0; i < pixels.length; i++) {
+				for (int j = 0; j < pixels.length; j++) {
+					pixels[mouseX/pixelWidth][mouseY/pixelHeight].color = color;
+				}
+			}
 	}
 	
 	@Override
@@ -70,16 +66,12 @@ public class GridPanel extends JPanel{
 		//   For every pixel in the list, fill in a rectangle using the pixel's color.
 		//   Then, use drawRect to add a grid pattern to your display.
 		for (int i = 0; i < pixels.length; i++) {
-			for (int j = 0; j < pixels.length; j++) {
-				for (int k = 0; k < windowWidth/pixelWidth; k++) {
-					g.setColor(Color.BLACK);
-					g.drawRect(windowWidth/pixelWidth, windowHeight/pixelHeight, pixelWidth, pixelHeight);
-					g.setColor(color);
-					g.fillRect(windowWidth/(pixelWidth), windowHeight/(pixelHeight), pixelWidth, pixelHeight);
-				}
-				
+			for (int j = 0; j < pixels[0].length; j++) {
+				Pixel temp = pixels[i][j];
+				g.setColor(temp.color);
+				g.fillRect(temp.x, temp.y, pixelWidth, pixelHeight);
 				g.setColor(Color.BLACK);
-				g.drawRect(0, 0, pixelWidth, pixelHeight);
+				g.drawRect(temp.x, temp.y, pixelWidth, pixelHeight);
 			}
 		}
 	}
