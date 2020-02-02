@@ -23,6 +23,7 @@ public class TheWrongWayCowTest {
       "coww".toCharArray(),
       "cow.".toCharArray(),
       };
+      System.out.println("");
     assertArrayEquals(new int[]{3,0}, TheWrongWayCow.findWrongWayCow(show(field)));
   }
 
@@ -34,6 +35,7 @@ public class TheWrongWayCowTest {
       "cow.woc.cow.cow.cow".toCharArray(),
       "cow.cow.cow.cow.cow".toCharArray(),
       };
+      System.out.println("");
     assertArrayEquals(new int[]{6,2}, TheWrongWayCow.findWrongWayCow(show(field)));
   }
 
@@ -46,6 +48,7 @@ public class TheWrongWayCowTest {
       "....w.o....".toCharArray(),
       "......w.cow".toCharArray()
       };
+      System.out.println("");
     assertArrayEquals(new int[]{8,4}, TheWrongWayCow.findWrongWayCow(show(field)));
   }
 
@@ -61,6 +64,7 @@ public class TheWrongWayCowTest {
       " dfhdu 880-23fjdlfkjlkjlkjfljf".toCharArray(),
       ";d43-02- -340-2394 39-099kk;ld".toCharArray()
     };
+    System.out.println("");
     assertArrayEquals(new int[]{29,0}, TheWrongWayCow.findWrongWayCow(show(field)));
   }
 
@@ -84,6 +88,7 @@ public class TheWrongWayCowTest {
       "cowcowcowcowcowcowcowcowcowcowcowcowcowcowcowcow".toCharArray(),
       "cowcowcowcowcowcowcowcowcowcowcowcowcowcowcowcow".toCharArray()
     };
+    System.out.println("");
     assertArrayEquals(new int[]{9,5}, TheWrongWayCow.findWrongWayCow(show(field)));
   }
 
@@ -107,6 +112,7 @@ public void wwcE() {
     "wocwocwocwocwocwocwocwocwocwoc".toCharArray(),
     "wocwocwocwocwocwocwocwocwoccow".toCharArray()
   };
+  System.out.println("");
   assertArrayEquals(new int[]{27,15}, TheWrongWayCow.findWrongWayCow(show(field)));
 }
 
@@ -129,6 +135,7 @@ public void wwcN() {
   "oooooooooooooooooooooooooooooo".toCharArray(),
   "wwwwwwwwwwwwwwwwwwwwwwwwwwwwww".toCharArray()
   };
+  System.out.println("");
   assertArrayEquals(new int[]{14,8}, TheWrongWayCow.findWrongWayCow(show(field)));
 }
 
@@ -157,6 +164,7 @@ public void wwcS() {
     "oooooooooooooooooooooooooooooo".toCharArray(),
     "cccccccccccccccccccccccccccccc".toCharArray()
   };
+  System.out.println("");
   assertArrayEquals(new int[]{3,4}, TheWrongWayCow.findWrongWayCow(show(field)));
 }
 
@@ -174,6 +182,7 @@ public void mostlyEmpty() {
     ".............................o".toCharArray(),
     ".............................c".toCharArray()
   };
+  System.out.println("");
   assertArrayEquals(new int[]{0,0}, TheWrongWayCow.findWrongWayCow(show(field)));
 }
 
