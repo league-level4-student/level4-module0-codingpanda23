@@ -32,7 +32,6 @@ public class Maze {
 	}
 	
 	//4b. This method returns the selected cell.
-	@SuppressWarnings("unused")
 	public Cell getCell(int x, int y){
 		for (int i = 0; i < cells.length; i++) {
 			for (int j = 0; j < cells.length; j++) {
